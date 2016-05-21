@@ -1,5 +1,7 @@
 # Java
 
+*Ideally, you should have one mainstream programming language down very well, to use in interviews. Java is mine.*
+
 - [Google Java Style Guide](http://google.github.io/styleguide/javaguide.html)
 
 ## Threads
