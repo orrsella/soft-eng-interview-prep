@@ -14,7 +14,7 @@
     - Cubic: enumerating all triples of items
     - Exponential: enumerating all subsets of n items
     - Factorial: generating all permutations or orderings of n items
-- `O(f(n)) + O(g(n))` => `O(max(f(n), g(n)))` => `n^3 + n^2 + n + 1 = O(n3)`
+- `O(f(n)) + O(g(n))` => `O(max(f(n), g(n)))` => `n^3 + n^2 + n + 1 = O(n^3)`
 - `O(f(n)) ∗ O(g(n))` => `O(f(n) ∗ g(n))`
 
 ## Recursion Complexity Analysis
