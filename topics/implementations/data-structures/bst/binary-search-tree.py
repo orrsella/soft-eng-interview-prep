@@ -15,17 +15,17 @@ class BST(object):
 			self.root = node_to_insert
 
 		else:
-			self.insert_aux(self.root, node_to_insert)
+			self.__insert_aux(self.root, node_to_insert)
 
 
-	def insert_aux(self, node, node_to_insert):
+	def __insert_aux(self, node, node_to_insert):
 		if node.get_value() < node_to_insert.get_value():
 			if node.get_right_child() is None:
 				node.set_right_child(node_to_insert)
 				node_to_insert.set_parent(node)
 
 			else:
-				self.insert_aux(node.get_right_child(), node_to_insert)
+				self.__insert_aux(node.get_right_child(), node_to_insert)
 
 		else:
 			if node.get_left_child() is None:
@@ -33,16 +33,16 @@ class BST(object):
 				node_to_insert.set_parent(node)
 
 			else:
-				self.insert_aux(node.get_left_child(), node_to_insert)
+				self.__insert_aux(node.get_left_child(), node_to_insert)
 
 
 	def search(self, value_to_search):
-		value_found = self.search_aux(self.root, value_to_search)
+		value_found = self.__search_aux(self.root, value_to_search)
 
 		return value_found
 
 
-	def search_aux(self, node, value_to_search):
+	def __search_aux(self, node, value_to_search):
 		if node and node.get_value() == value_to_search:
 			return node
 
@@ -50,9 +50,9 @@ class BST(object):
 			return node
 
 		if node.get_value() < value_to_search and node.get_right_child():
-			return self.search_aux(node.get_right_child(), value_to_search)
+			return self.__search_aux(node.get_right_child(), value_to_search)
 
-		return self.search_aux(node.get_left_child(), value_to_search)	
+		return self.__search_aux(node.get_left_child(), value_to_search)	
 
 
 	def delete(self, node_value):
@@ -60,18 +60,18 @@ class BST(object):
 
 		if node_found:
 			if node_found.has_only_one_child():
-				self.delete_node_one_child(node_found)
+				self.__delete_node_one_child(node_found)
 
 			elif node_found.is_leaf():
-				self.delete_node_leaf(node_found)
+				self.__delete_node_leaf(node_found)
 
 			else:
-				self.delete_node_with_two_children(node_found)
+				self.__delete_node_with_two_children(node_found)
 
 		return node_found
 
 
-	def delete_node_one_child(self, node):
+	def __delete_node_one_child(self, node):
 		if node.get_right_child():
 			node.set_value(node.get_right_child().get_value())
 			node.set_right_child(None)
@@ -81,7 +81,7 @@ class BST(object):
 			node.set_left_child(None)
 
 
-	def delete_node_leaf(self, node):
+	def __delete_node_leaf(self, node):
 		parent = node.get_parent()
 
 		if parent.get_right_child() is node:
@@ -91,12 +91,12 @@ class BST(object):
 			parent.set_left_child(None)
 
 
-	def delete_node_with_two_children(self, node):
+	def __delete_node_with_two_children(self, node):
 		successor = self.__min_tree_value(node.get_right_child())
 		node.set_value(successor.get_value())
 
 		if successor.is_leaf():
-			self.delete_node_leaf(successor)
+			self.__delete_node_leaf(successor)
 
 		elif successor.get_right_child():
 			successor_parent = successor.get_parent()
@@ -116,14 +116,14 @@ class BST(object):
 
 
 	def inorder(self):
-		self.inorder_aux(self.root)
+		self.__inorder_aux(self.root)
 
 
-	def inorder_aux(self, node):
+	def __inorder_aux(self, node):
 		if node is not None:
-			self.inorder_aux(node.get_left_child())
+			self.__inorder_aux(node.get_left_child())
 			print node.get_value()
-			self.inorder_aux(node.get_right_child())
+			self.__inorder_aux(node.get_right_child())
 
 
 
