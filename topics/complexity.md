@@ -20,7 +20,7 @@
 ## Recursion Complexity Analysis
 
 - Let `T(n)` be the recursive function.
-- Bellow are examples of inner calls of `T(n)`, their complexity, and example algorithm that uses them:
+- Below are examples of inner calls of `T(n)`, their complexity, and example algorithm that uses them:
     - `T(n) = T(n/2) + O(1)`, `O(log(n))`, binary search
     - `T(n) = T(n-1) + O(1)`, `O(n)` , sequential search
     - `T(n) = 2*T(n/2) + O(1)`, `O(n)`, tree traversal
