@@ -9,7 +9,7 @@
 Sr No | Layer           | Data unit          | Examples
 ------|-----------------|--------------------|-------------------------------------
 1    | Physical         | bit                | Ethernet, USB, Wi-Fi, Bluetooth, DSL
-2    | Data link        | Frame              | L2TP, PPP
+2    | Data link        | Frame              | L2TP, PPP, CSMA/CD
 3    | Network          | Packet             | **IPv4**, **IPv6**
 4    | Transport        | Segment (Datagram) | **TCP**, **UDP**
 5    | Session          | Data               | HTTP, FTP, SMTP, DNS, IMAP, SSH, TLS
@@ -21,6 +21,7 @@ Sr No | Layer           | Data unit          | Examples
 - Frame
     - Structure: Frame header (e.g. Ethernet) + (Network header + Transport header + data) + Frame footer
     - Source and destination MAC addresses, length, checksum
+    - Max Lenght of a frame: 1518 Byte, 12 Byte for mac addresses, 2 Byte for Ethertype and 4 Byte for FCS (Frame Check Sequence).
 - Packet
     - Structure: Network header (e.g. IP) + (Transport header + data)
     - Version (IPv4/IPv6), source and destination IP addresses, length flags, TTL, protocol, checksum
@@ -36,6 +37,8 @@ Sr No | Layer           | Data unit          | Examples
 - No delivery guarantee, no receiving ack.
 - Sometimes multiple copies of the same packet are passes, taking different paths, and thus arriving at different times.
 - Designed to be able to route around connectivity problems.
+- Exists two version of this: IPv4 and IPv6, we are migrating to v4 to v6 because there are a lot of Internet Devices.
+    - The main difference is that IPv4 is only 32 bit and the IPv6 is 128 bit
 
 ## TCP
 
